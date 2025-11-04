@@ -1099,30 +1099,62 @@
     // Handle service item clicks
     $('.service-item').on('click', function() {
       var serviceType = $(this).data('service');
+      var isMobile = $(window).width() <= 1200;
       
-      // Remove active class from all service items
-      $('.service-item').removeClass('active');
-      
-      // Add active class to clicked item
-      $(this).addClass('active');
-      
-      // Hide all service images and descriptions
-      $('.service-image, .service-description').removeClass('active');
-      
-      // Show selected service image and description with animation
-      setTimeout(function() {
-        $('.service-image[data-service="' + serviceType + '"]').addClass('active');
-        $('.service-description[data-service="' + serviceType + '"]').addClass('active');
-      }, 150);
+      if (isMobile) {
+        // Mobile accordion behavior
+        if ($(this).hasClass('active')) {
+          // Collapse if already active
+          $(this).removeClass('active');
+        } else {
+          // Collapse all others and expand this one
+          $('.service-item').removeClass('active');
+          $(this).addClass('active');
+        }
+      } else {
+        // Desktop behavior (1200px+) - show in right column
+        // Remove active class from all service items
+        $('.service-item').removeClass('active');
+        
+        // Add active class to clicked item
+        $(this).addClass('active');
+        
+        // Hide all service images and descriptions
+        $('.service-image, .service-description').removeClass('active');
+        
+        // Show selected service image and description with animation
+        setTimeout(function() {
+          $('.service-image[data-service="' + serviceType + '"]').addClass('active');
+          $('.service-description[data-service="' + serviceType + '"]').addClass('active');
+        }, 150);
+      }
     });
     
-    // Add hover effects for better UX
+    // Handle window resize - reset to first service on switch between mobile and desktop
+    var previousWidth = $(window).width();
+    $(window).on('resize', function() {
+      var currentWidth = $(window).width();
+      var wasMobile = previousWidth <= 1200;
+      var isMobile = currentWidth <= 1200;
+      
+      if (wasMobile !== isMobile) {
+        // Screen size category changed
+        $('.service-item').removeClass('active');
+        $('.service-item:first').addClass('active');
+        if (!isMobile) {
+          $('.service-image:first, .service-description:first').addClass('active');
+        }
+      }
+      previousWidth = currentWidth;
+    });
+    
+    // Add hover effects for better UX (desktop only)
     $('.service-item').on('mouseenter', function() {
-      if (!$(this).hasClass('active')) {
+      if ($(window).width() > 1200 && !$(this).hasClass('active')) {
         $(this).css('transform', 'translateX(3px)');
       }
     }).on('mouseleave', function() {
-      if (!$(this).hasClass('active')) {
+      if ($(window).width() > 1200 && !$(this).hasClass('active')) {
         $(this).css('transform', 'translateX(0)');
       }
     });

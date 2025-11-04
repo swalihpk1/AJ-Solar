@@ -30018,4 +30018,382 @@ section, div[id] {
   scroll-margin-top: 80px;
 }
 
+/* Mobile Accordion Styles for Services (up to 1200px) */
+@media (max-width: 1200px) {
+  /* Hide right column completely */
+  .solar-services-area .col-lg-7 {
+    display: none !important;
+  }
+  
+  /* Make left column full width */
+  .solar-services-area .col-lg-5 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  
+  .solar-service-details {
+    display: none !important;
+  }
+  
+  .solar-services-list {
+    width: 100%;
+    padding: 20px;
+    background: transparent;
+    box-shadow: none;
+  }
+  
+  .service-item {
+    cursor: pointer;
+    position: relative;
+    border: 2px solid #e8e8e8;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+    background: #ffffff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .service-item:hover {
+    border-color: var(--color-primary);
+    box-shadow: 0 4px 15px rgba(74, 171, 61, 0.1);
+  }
+  
+  .service-item.active {
+    border-color: var(--color-primary);
+    border-width: 2px;
+    background: linear-gradient(135deg, rgba(74, 171, 61, 0.02) 0%, rgba(74, 171, 61, 0.05) 100%);
+    box-shadow: 0 6px 20px rgba(74, 171, 61, 0.15);
+  }
+  
+  /* Service Icon Styling */
+  .service-item .service-icon {
+    width: 60px;
+    height: 60px;
+    background: rgba(74, 171, 61, 0.1);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+  }
+  
+  .service-item .service-icon i {
+    font-size: 26px;
+    color: #666;
+    transition: all 0.3s ease;
+  }
+  
+  /* Service Content Styling */
+  .service-item .service-content {
+    flex: 1;
+    min-width: 0;
+  }
+  
+  .service-item .service-content h4 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #1a1a1a;
+    line-height: 1.3;
+  }
+  
+  .service-item .service-content p {
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+    line-height: 1.5;
+  }
+  
+  /* Service Arrow Styling */
+  .service-item .service-arrow {
+    margin-left: 15px;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+  }
+  
+  .service-item .service-arrow i {
+    font-size: 18px;
+    color: #999;
+    transition: all 0.3s ease;
+  }
+  
+  /* Change text color to black when active */
+  .service-item.active .service-content h4,
+  .service-item.active .service-content p {
+    color: #000000 !important;
+  }
+  
+  /* Change icon color to green when active */
+  .service-item.active .service-icon {
+    background: rgba(74, 171, 61, 0.15);
+  }
+  
+  .service-item.active .service-icon i {
+    color: var(--color-primary) !important;
+  }
+  
+  /* Change arrow color to green when active */
+  .service-item.active .service-arrow i {
+    color: var(--color-primary) !important;
+  }
+  
+  .service-item.active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(180deg, var(--color-primary) 0%, #5bc74a 100%);
+    border-radius: 12px 0 0 12px;
+  }
+  
+  .service-mobile-details {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), padding 0.5s ease, opacity 0.3s ease;
+    padding: 0;
+    opacity: 0;
+    border-top: 1px solid transparent;
+    width: 100%;
+    flex-basis: 100%;
+    order: 4;
+  }
+  
+  .service-item.active .service-mobile-details {
+    max-height: 3000px;
+    padding: 20px 0 0 0;
+    opacity: 1;
+    border-top-color: rgba(74, 171, 61, 0.2);
+    margin-top: 20px;
+  }
+  
+  .service-mobile-details img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #e8e8e8;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  }
+  
+  .service-mobile-details h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: #1a1a1a;
+    font-weight: 600;
+    position: relative;
+    padding-left: 15px;
+  }
+  
+  .service-mobile-details h3::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 20px;
+    background: var(--color-primary);
+    border-radius: 2px;
+  }
+  
+  .service-mobile-details p {
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    color: #555;
+  }
+  
+  .service-mobile-details .service-features {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 25px;
+  }
+  
+  .service-mobile-details .service-features li {
+    padding: 10px 0;
+    font-size: 14px;
+    color: #444;
+    position: relative;
+    padding-left: 30px;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+  .service-mobile-details .service-features li:last-child {
+    border-bottom: none;
+  }
+  
+  .service-mobile-details .service-features li i {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-primary);
+    font-size: 16px;
+  }
+  
+  .service-mobile-details .info {
+    text-align: center;
+    padding: 20px;
+    background: linear-gradient(135deg, var(--color-primary) 0%, #5bc74a 100%);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(74, 171, 61, 0.3);
+    transition: transform 0.3s ease;
+  }
+  
+  .service-mobile-details .info:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(74, 171, 61, 0.4);
+  }
+  
+  .service-mobile-details .info span {
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .service-mobile-details .info a {
+    text-decoration: none;
+  }
+  
+  .service-mobile-details .info h6 {
+    color: white;
+    font-size: 22px;
+    margin: 0;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+  
+  /* Arrow rotation for active state */
+  .service-item.active .service-arrow {
+    transform: rotate(90deg);
+  }
+  
+  /* Responsive adjustments for tablets and smaller screens */
+  @media (max-width: 768px) {
+    .service-item {
+      padding: 16px 16px;
+    }
+    
+    .service-item .service-icon {
+      width: 50px;
+      height: 50px;
+      margin-right: 12px;
+    }
+    
+    .service-item .service-icon i {
+      font-size: 22px;
+    }
+    
+    .service-item .service-content h4 {
+      font-size: 16px;
+    }
+    
+    .service-item .service-content p {
+      font-size: 13px;
+    }
+  }
+}
+
+/* Keep desktop layout for 1200px and above */
+@media (min-width: 1201px) {
+  .service-mobile-details {
+    display: none !important;
+  }
+}
+
+/* WhatsApp Floating Button */
+.whatsapp-float {
+  position: fixed;
+  bottom: 100px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+  z-index: 999;
+  transition: all 0.3s ease;
+  animation: whatsapp-pulse 2s infinite;
+  text-decoration: none;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.15) translateY(-5px);
+  box-shadow: 0 8px 30px rgba(37, 211, 102, 0.6);
+  background: linear-gradient(135deg, #128C7E 0%, #25D366 100%);
+  color: #fff;
+}
+
+.whatsapp-float i {
+  animation: whatsapp-shake 1s ease-in-out infinite;
+  color: #fff;
+  line-height: 1;
+}
+
+.whatsapp-float:hover i {
+  animation: none;
+  color: #fff;
+}
+
+/* WhatsApp pulse animation */
+@keyframes whatsapp-pulse {
+  0% {
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4), 0 0 0 0 rgba(37, 211, 102, 0.7);
+  }
+  50% {
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4), 0 0 0 15px rgba(37, 211, 102, 0);
+  }
+  100% {
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4), 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+
+/* WhatsApp icon shake animation */
+@keyframes whatsapp-shake {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: rotate(-10deg);
+  }
+  20%, 40%, 60%, 80% {
+    transform: rotate(10deg);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .whatsapp-float {
+    bottom: 80px;
+    right: 20px;
+    width: 55px;
+    height: 55px;
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .whatsapp-float {
+    bottom: 70px;
+    right: 15px;
+    width: 50px;
+    height: 50px;
+    font-size: 26px;
+  }
+}
+
 /*# sourceMappingURL=style.css.map */
