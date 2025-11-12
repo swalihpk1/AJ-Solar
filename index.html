@@ -1156,8 +1156,54 @@
     <!-- about area end -->
 
 
-    <!-- cart area start (removed) -->
-    <!-- cart area end (removed) -->
+<!-- rts contact form area start  -->
+
+    <div class="rts-contact-wrapper-form-area rts-section-gapBottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="form--area">
+                        <div class="title-area-left">
+                            <p class="pre">
+                                <span>Feel Free</span> To COntact Us
+                            </p>
+                            <h2 class="title">
+                                Let’s Get in Touch
+                            </h2>
+                        </div>
+                        <div id="form-messages"></div>
+                        <form id="contact-form" action="mailer.php" method="post" class="contact-page-form mt--30">
+                            <div class="name-email-wraper">
+                                <input name="പേര്" type="text" placeholder="പേര്" required>
+                                <input name="ഫോൺ" type="tel" placeholder="ഫോൺ" required>
+                            </div>
+                             <input name="സ്ഥലം" type="text" placeholder="സ്ഥലം" required>
+                            <select name="സേവനം" required class="service-select">
+                              <option value="">സേവനം തിരഞ്ഞെടുക്കുക</option>
+                              <option value="On-Grid Solar System">On-Grid Solar System</option>
+                              <option value="Off-Grid Solar System">Off-Grid Solar System</option>
+                              <option value="Hybrid Solar System">Hybrid Solar System</option>
+                              <option value="Inverter Battery">Inverter Battery</option>
+                              <option value="Solar Water Heater">Solar Water Heater</option>
+                              <option value="Micro Inverter System">Micro Inverter System</option>
+                              <option value="Lithium-ion Battery">Lithium-ion Battery</option>
+                            </select>
+
+                            <button class="rts-btn btn-primary">Get Free Consultation</button>
+                        </form>
+                    </div>
+                </div>
+                <!-- <div class="col-lg-5 col-md-12 col-sm-12 col-12">
+                    <div class="map-area-wrapper">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d14604.908726737911!2d90.4219536!3d23.77492315!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1679901838243!5m2!1sen!2sbd" width="600" height="690" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </div>
+    <!-- rts contact form area end  -->
+
+  
 
     <!-- hop page call to action area start -->
     <div class="cta-call-to-action-shop ptb--60">
@@ -1518,6 +1564,31 @@
     <script src="assets/js/plugins/bootstrap.min.js"></script>
     <script src="assets/js/vendor/magnific-popup.min.js"></script>
     <script src="assets/js/main.js"></script>
+
+    <!-- Contact Form WhatsApp Integration -->
+    <script>
+      document.getElementById('contact-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const name = this.querySelector('input[name="പേര്"]').value;
+        const phone = this.querySelector('input[name="ഫോൺ"]').value;
+        const place = this.querySelector('input[name="സ്ഥലം"]').value;
+        const service = this.querySelector('select[name="സേവനം"]').value;
+        
+        if (name && phone && place && service) {
+          const message = `ഹായ് AJ Solar! ഞാൻ ${place} നിന്നുള്ള ${name} ആണ്. ${service} കുറിച്ച് ഇന്ററെസ്റ്റുണ്ട്. എന്റെ നമ്പർ ${phone} ആണ്`;
+          const whatsappURL = `https://wa.me/919074000789?text=${encodeURIComponent(message)}`;
+          
+          // Open WhatsApp
+          window.open(whatsappURL, '_blank');
+          
+          // Reset form
+          this.reset();
+          
+        }
+      });
+    </script>
+
     <!-- header style two End -->
   </body>
 </html>
