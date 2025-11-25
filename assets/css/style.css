@@ -661,7 +661,7 @@ ol ul {
 }
 
 .rts-section-gap {
-  padding: 120px 0;
+  padding: 125px 0;
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
@@ -671,7 +671,7 @@ ol ul {
 }
 @media only screen and (max-width: 767px) {
   .rts-section-gap {
-    padding: 60px 0;
+    padding: 0px 0;
   }
 }
 .rts-section-gapBottom {
@@ -5609,7 +5609,7 @@ ol ul {
     margin-right: 20px !important;
   }
   .mb_sm--20 {
-    margin-bottom: 20px !important;
+    padding: 0px 32px 0px 32px;
   }
   .ptb_sm--25 {
     padding: 25px 0 !important;
@@ -25255,7 +25255,8 @@ p {
 .brand-area-h2 {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
+      margin-bottom: 50px;
 }
 
 @media only screen and (max-width: 767px) {
@@ -25275,6 +25276,7 @@ p {
     justify-content: center;
     flex-wrap: wrap;
     gap: 30px;
+    margin-bottom: 36px;
   }
 }
 .brand-area-h2 img {
@@ -30282,6 +30284,25 @@ section, div[id] {
     margin: 0;
     font-weight: 700;
     letter-spacing: 0.5px;
+  }
+  
+  .service-mobile-details .info .rts-btn {
+    margin-top: 15px;
+    background: #ffffff;
+    color: var(--color-primary);
+    padding: 12px 25px;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+  }
+  
+  .service-mobile-details .info .rts-btn:hover {
+    background: rgba(255, 255, 255, 0.9);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   }
   
   /* Arrow rotation for active state */
